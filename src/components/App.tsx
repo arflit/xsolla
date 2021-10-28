@@ -13,6 +13,7 @@ export type card = {
   city: string;
   genre: string;
   image: string;
+  isFavorite?: boolean;
 };
 
 export type filter = {
@@ -33,9 +34,21 @@ const App = () => {
     monthList: [0],
     favorites: false,
   });
+  const toggleFavorite = (id: string) => {
+    const newCards = cards.map((Card) => {
+      if (Card.id !== id) return Card;
+      return {
+        ...Card,
+        isFavorite: !Card.isFavorite,
+      };
+    });
+    setCards(newCards);
+  };
   useEffect(() => {
     apiRequest().then((data) => {
-      setCards(data);
+      setCards(
+        data.map((cardData: card) => ({ ...cardData, isFavorite: false })),
+      );
       const cityList = new Set<string>();
       const monthList = new Set<number>();
       data.forEach((event: card) => {
@@ -63,6 +76,10 @@ const App = () => {
       .filter((theCard) => {
         if (filters.city === 'show all') return true;
         return theCard.city === filters.city;
+      })
+      .filter((theCard) => {
+        if (filters.favorites === false) return true;
+        return theCard.isFavorite;
       });
 
     setFilteredCards(filtered);
@@ -73,7 +90,7 @@ const App = () => {
       <Menu filters={filters} setFilters={setFilters} />
       <Main>
         {filteredCards.map((eventCard) => (
-          <EventCard key={eventCard.id} eventCardData={eventCard} />
+          <EventCard key={eventCard.id} eventCardData={eventCard} toggleFavorite={toggleFavorite} />
         ))}
       </Main>
     </div>

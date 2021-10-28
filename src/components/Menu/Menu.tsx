@@ -44,7 +44,7 @@ export const Menu = ({ filters, setFilters }: menuProps) => {
     });
   };
   return (
-    <nav className="nav">
+    <nav className="menu">
       <label htmlFor="setCitySelect">
         City:
         <select value={filters.city} onChange={onChangeCity} id="setCitySelect">
