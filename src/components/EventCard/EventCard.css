@@ -1,0 +1,17 @@
+.event-card {
+  width: 600px;
+  height: 400px;
+}
+
+.event-card__date {
+  border: 2px solid black;
+  border-radius: 6px;
+  width: 80px;
+  height: 80px;
+}
+
+.event-card__favorites-button {
+}
+
+.event-card__title {
+}
