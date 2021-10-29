@@ -7,3 +7,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@media (max-width: 1320px) {
+  body {
+    width: calc(100vw - 80px);
+  }
+}
+
+@media (max-width: 740px) {
+  body {
+    width: calc(100vw - 40px);
+  }
+}

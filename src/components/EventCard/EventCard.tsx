@@ -21,7 +21,9 @@ export const EventCard = ({ eventCardData, toggleFavorite }: eventCardProps) => 
   return (
     <div className="event-card" style={{ backgroundImage: `url(${image})` }}>
       <div className="event-card__header">
-        <p className="event-card__date">{date.split('.')[0]}</p>
+        <div className="event-card__date">
+          <p className="event-card__datename">{date.split('.')[0]}</p>
+        </div>
         <button
           type="button"
           className="event-card__favorites-button"
