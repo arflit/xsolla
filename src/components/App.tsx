@@ -43,11 +43,27 @@ const App = () => {
       };
     });
     setCards(newCards);
+    const favoriteEvents = newCards.reduce<string[]>((arr, event) => {
+      if (event.isFavorite) {
+        arr.push(event.id);
+      }
+      return arr;
+    }, []);
+    localStorage.removeItem('favoriteEvents');
+    localStorage.setItem('favoriteEvents', JSON.stringify(favoriteEvents));
   };
   useEffect(() => {
     apiRequest().then((data) => {
+      const rawFavoriteEvents = localStorage.getItem('favoriteEvents');
+      const favoriteEvents: string[] = rawFavoriteEvents ? JSON.parse(rawFavoriteEvents) : [];
       setCards(
-        data.map((cardData: card) => ({ ...cardData, isFavorite: false })),
+        data.map((cardData: card) => {
+          const isFavorite = favoriteEvents.includes(cardData.id);
+          return {
+            ...cardData,
+            isFavorite,
+          };
+        }),
       );
       const cityList = new Set<string>();
       const monthList = new Set<number>();
