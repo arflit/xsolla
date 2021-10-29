@@ -1,11 +1,11 @@
 # Вступительное задание в Xsolla Frontend School 2021
 
 Опубликовано здесь: 
-(https://xsolla.flitman.ru)
+https://xsolla.flitman.ru
 
-ТЗ для задания: (https://github.com/xsolla/xsolla-frontend-school-2021)
+ТЗ для задания: https://github.com/xsolla/xsolla-frontend-school-2021
 
-Макет: (https://www.figma.com/file/Pj3m33bkUDXav4woGDdG7O/Xsolla-Frontend-School-2021?node-id=0%3A1)
+Макет: https://www.figma.com/file/Pj3m33bkUDXav4woGDdG7O/Xsolla-Frontend-School-2021?node-id=0%3A1
 
 Приложение загружает данные о мероприятиях и отрисовывает их каталог с возможностью фильтрации по городу и месяцу проведения. 
 
